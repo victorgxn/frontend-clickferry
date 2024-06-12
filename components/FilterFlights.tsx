@@ -168,30 +168,41 @@ export default function FilterFlights() {
           <div className="results mt-6">
               {departures.length > 0 ? (
                   departures.map((departure, index) => (
-                      <div key={index} className="bg-white rounded-xl shadow-md p-4 mb-4">
-                          <div className="flex justify-between items-center">
+                      <div key={index} className="bg-white rounded-xl shadow-lg p-6 mb-6">
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                               <div>
-                                  <p className="text-gray-700"><strong>Departure
-                                      Port:</strong> {departure.departurePort}</p>
-                                  <p className="text-gray-700"><strong>Arrival Port:</strong> {departure.arrivalPort}
-                                  </p>
-                                  <p className="text-gray-700"><strong>Departure
-                                      Time:</strong> {departure.departureTime}</p>
-                                  <p className="text-gray-700"><strong>Arrival Time:</strong> {departure.arrivalTime}
-                                  </p>
-                                  <p className="text-gray-700"><strong>Ship Name:</strong> {departure.shipName}</p>
-                                  <p className="text-gray-700"><strong>Ship Type:</strong> {departure.shipType}</p>
-                                  <p className="text-gray-700"><strong>Supplier:</strong> {departure.supplier}</p>
+                                  <p className="text-gray-800 font-medium"><strong>Puerto de
+                                      Salida:</strong> {departure.departurePort}</p>
+                                  <p className="text-gray-800 font-medium"><strong>Hora de
+                                      Salida:</strong> {departure.departureTime}</p>
+                                  <p className="text-gray-800 font-medium"><strong>Nombre del
+                                      Barco:</strong> {departure.shipName}</p>
+                                  <p className="text-gray-800 font-medium"><strong>Tipo de
+                                      Barco:</strong> {departure.shipType}</p>
                               </div>
-                              <div className="text-right">
-                                  <button className="bg-yellow-500 text-white py-2 px-4 rounded-full">Select</button>
+                              <div>
+                                  <p className="text-gray-800 font-medium"><strong>Puerto de
+                                      Llegada:</strong> {departure.arrivalPort}</p>
+                                  <p className="text-gray-800 font-medium"><strong>Hora de
+                                      Llegada:</strong> {departure.arrivalTime}</p>
+                                  <p className="text-gray-800 font-medium">
+                                      <strong>Proveedor:</strong> {departure.supplier}</p>
+                              </div>
+                              <div className="flex justify-end items-center">
+                                  <button
+                                      className="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-6 rounded-full transition duration-300">
+                                      Seleccionar
+                                  </button>
                               </div>
                           </div>
                       </div>
                   ))
               ) : (
-                  !loading &&
-                  <p className="text-center text-gray-700">No departures found for the selected criteria.</p>
+                  !loading && (
+                      <p className="text-center text-gray-700">
+                          No hay salidas disponibles.
+                      </p>
+                  )
               )}
           </div>
       </div>
